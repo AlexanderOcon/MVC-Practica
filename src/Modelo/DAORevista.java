@@ -60,4 +60,30 @@ public class DAORevista {
 
         return new DataBase().Actualizar(transaccion);
     }
+
+    // Método para buscar registros específicos en la tabla
+    public List<Revista> Buscar(String criterio, String valor) {
+        // Construimos la consulta SQL con el criterio y el valor proporcionado
+        String transaccion = "SELECT * FROM Revista WHERE " + criterio + " = '" + valor + "'";
+
+        // Llamamos al método Listar de DataBase para obtener los resultados
+        List<Map> registros = new DataBase().Listar(transaccion);
+        List<Revista> revistas = new ArrayList<>(); // Lista para almacenar los resultados
+
+        // Recorremos los registros obtenidos y los convertimos a objetos Revista
+        for (Map registro : registros) {
+            Revista rev = new Revista(
+                    (int) registro.get("numero"),
+                    (String) registro.get("titulo"),
+                    (int) registro.get("ayo"),
+                    (String) registro.get("issn"),
+                    (float) registro.get("precio"),
+                    (java.sql.Time) registro.get("Horaventa")
+            );
+            revistas.add(rev);
+        }
+
+        return revistas; // Retornamos la lista de revistas encontradas
+    }
+
 }
