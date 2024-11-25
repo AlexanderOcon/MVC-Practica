@@ -10,12 +10,14 @@ public class MDISistemaPublicaciones extends javax.swing.JFrame {
     public MDISistemaPublicaciones() {
         initComponents();
         setTitle("Publicaciones");//Agrega el titulo al MDI
+        this.setExtendedState(MDISistemaPublicaciones.MAXIMIZED_BOTH);
+
         Autores = new JInternalFrameAutores();
-//Agregar los JInternalFrame al desktopane del MDI       
+        //Agregar los JInternalFrame al desktopane del MDI       
         desktopPane.add(Autores);
 
         revistas = new JInternalFrameRevista();
-//Agregar los JInternalFrame al desktopane del MDI       
+        //Agregar los JInternalFrame al desktopane del MDI       
         desktopPane.add(revistas);
     }
 
@@ -29,9 +31,6 @@ public class MDISistemaPublicaciones extends javax.swing.JFrame {
         VerAutoresMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         VerRevistasMenuItem = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,19 +63,6 @@ public class MDISistemaPublicaciones extends javax.swing.JFrame {
         editMenu.add(VerRevistasMenuItem);
 
         menuBar.add(editMenu);
-
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Help");
-
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Contents");
-        helpMenu.add(contentMenuItem);
-
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
-
-        menuBar.add(helpMenu);
 
         setJMenuBar(menuBar);
 
@@ -145,12 +131,9 @@ public class MDISistemaPublicaciones extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem VerAutoresMenuItem;
     private javax.swing.JMenuItem VerRevistasMenuItem;
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuBar menuBar;
     // End of variables declaration//GEN-END:variables
 

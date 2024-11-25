@@ -5,8 +5,7 @@ import java.util.*;
 
 public class DAORevista {
 
-    public Revista Insertar(String titulo, int ayo, String issn,
-            float precio, java.sql.Time Horaventa) {
+    public Revista Insertar(String titulo, int ayo, String issn,float precio, java.sql.Time Horaventa) {
         String transaccion = "INSERT INTO Revista (titulo,ayo,issn,precio,Horaventa) VALUES ('"
                 + titulo + "','"
                 + ayo + "','"
@@ -21,8 +20,7 @@ public class DAORevista {
     }
 
     //Metodo para Actualizar un registro en la BD
-    public int Actualizar(int numero, String titulo, int ayo, String issn,
-            float precio, Time Horaventa) {
+    public int Actualizar(int numero, String titulo, int ayo, String issn, float precio, Time Horaventa) {
 
         String transaccion = "UPDATE Revista SET titulo='"
                 + titulo + "', ayo='"
@@ -37,7 +35,7 @@ public class DAORevista {
     }
 
     // Metodos para seleccionar todos los registro de la tabla
-    public List ObtenerDatos() {
+    public List <Revista> ObtenerDatos() {
         String transaccion = "SELECT * FROM Revista";
         //Llama a metodo Listar de DataBase.java
         List<Map> registros = new DataBase().Listar(transaccion);
@@ -85,5 +83,4 @@ public class DAORevista {
 
         return revistas; // Retornamos la lista de revistas encontradas
     }
-
 }
